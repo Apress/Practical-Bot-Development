@@ -1,0 +1,25 @@
+{
+  "name": "practical-bot-development-human-handover-fb-bot",
+  "version": "1.0.0",
+  "description": "Human Handover Facebook Bot from Chapter 12, Practical Bot Development",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Szymon Rozga",
+  "license": "MIT",
+  "dependencies": {
+    "botbuilder": "^3.14.0",
+    "dotenv-extended": "^1.0.4",
+    "request": "^2.83.0",
+    "restify": "^4.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.10.0",
+    "eslint-config-google": "^0.9.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1"
+  }
+}

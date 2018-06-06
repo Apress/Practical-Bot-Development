@@ -1,0 +1,26 @@
+{
+  "name": "practical-bot-development-youtube-search-bot",
+  "version": "1.0.0",
+  "description": "YouTube Search Bot from Chapter 1, Practical Bot Development",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Szymon Rozga",
+  "license": "MIT",
+  "dependencies": {
+    "botbuilder": "^3.11.0",
+    "dotenv-extended": "^1.0.4",
+    "request": "^2.83.0",
+    "restify": "^4.3.1",
+    "sprintf-js": "^1.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.10.0",
+    "eslint-config-google": "^0.9.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1"
+  }
+}

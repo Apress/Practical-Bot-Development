@@ -1,0 +1,32 @@
+{
+  "name": "practical-bot-development-directline-sample",
+  "version": "1.0.0",
+  "description": "Directline Sample from Chapter 9, Practical Bot Development",
+  "scripts": {
+    "start": "node app.js",
+    "debug": "node --nolazy --inspect-brk=9229 app.js"
+  },
+  "author": "Szymon Rozga",
+  "license": "MIT",
+  "dependencies": {
+    "bingspeech-api-client": "^2.3.1",
+    "botbuilder": "^3.12.0",
+    "dotenv-extended": "^1.0.4",
+    "md5": "^2.2.1",
+    "moment": "^2.19.3",
+    "restify": "^4.3.2",
+    "twilio": "^3.10.1",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "cp-cli": "^1.1.0",
+    "eslint": "^4.10.0",
+    "eslint-config-google": "^0.9.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1"
+  },
+  "main": "app.js"
+}

@@ -1,0 +1,142 @@
+<html>
+<head>
+    <style>
+        body {
+            background-color: black;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .card {
+            color: #dddddd;
+            background-color: black;
+            padding: 10px;
+            width: 564px;
+            height: 284px;
+        }
+
+        .card .symbol {
+            font-size: 42px;
+            vertical-align: middle;
+        }
+
+        .card .companyname {
+            font-size: 46px;
+            display: inline-block;
+            vertical-align: middle;
+            overflow-x: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            max-width: 380px;
+        }
+
+        .card .symbol::before {
+            content: '(';
+        }
+
+        .card .symbol::after {
+            content: ')';
+        }
+
+        .card .priceline {
+            margin-top: 20px;
+        }
+
+        .card .price {
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .card .change {
+            font-size: 28px;
+        }
+
+        .card .changePct {
+            font-size: 28px;
+        }
+
+        .card .positive {
+            color: darkgreen;
+        }
+
+        .card .negative {
+            color: darkred;
+        }
+
+        .card .changePct::before {
+            content: '(';
+        }
+
+        .card .changePct::after {
+            content: ')';
+        }
+
+        .card .factTable {
+            margin-top: 10px;
+            color: dddddd;
+            width: 100%;
+        }
+
+        .card .factTable .factTitle {
+            width: 50%;
+            font-size: 24px;
+            padding-bottom: 5px;
+        }
+
+        .card .factTable .factValue {
+            width: 50%;
+            text-align: right;
+            font-size: 24px;
+            font-weight: bold;
+            padding-bottom: 5px;
+        }
+
+        .sparkline {
+            padding-left: 10px;
+        }
+
+        .sparkline embed {
+            width: 200px;
+            height: 40px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+
+<body>
+    <div class="card">
+        <div class="header">
+            <span class="companyname">${companyName}</span>
+            <span class="symbol">${ticker}</span>
+        </div>
+        <div class="priceline">
+            <span class="price">${last_price}</span>
+            <span class="change ${changeClass}">${change}</span>
+            <span class="changePct ${changeClass}">${percent_change}</span>
+            <span class='sparkline'>
+                <embed src="http://sparksvg.me/line.svg?${sparklinedata}&rgba:255,255,255,0.7" type="image/svg+xml">
+            </span>
+
+        </div>
+        <table class="factTable">
+            <tr>
+                <td class='factTitle'>Bid</td>
+                <td class='factValue'>${bid}</td>
+            </tr>
+            <tr>
+                <td class='factTitle'>Ask</td>
+                <td class='factValue'>${ask}</td>
+            </tr>
+            <tr>
+                <td class='factTitle'>52 Week Low</td>
+                <td class='factValue'>${52weeklow}</td>
+            </tr>
+            <tr>
+                <td class='factTitle'>52 Week High</td>
+                <td class='factValue'>${52weekhigh}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

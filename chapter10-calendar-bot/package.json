@@ -1,0 +1,32 @@
+{
+  "name": "practical-bot-development-calendar-bot-buildup",
+  "version": "1.0.0",
+  "description": "Calendar Bot - Practical Bot Development",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Szymon Rozga",
+  "license": "MIT",
+  "dependencies": {
+    "botbuilder": "^3.13.1",
+    "cognitive-services": "^0.6.2",
+    "crypto-js": "^3.1.9-1",
+    "dotenv-extended": "^1.0.4",
+    "googleapis": "^22.2.0",
+    "moment": "^2.19.4",
+    "mstranslator": "^3.0.0",
+    "request": "^2.83.0",
+    "restify": "^4.3.2",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "eslint": "^4.15.0",
+    "eslint-config-google": "^0.9.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "jasmine-node": "^1.14.5"
+  }
+}

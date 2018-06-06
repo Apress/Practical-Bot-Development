@@ -1,0 +1,26 @@
+{
+  "name": "practical-bot-development-slackbot",
+  "version": "1.0.0",
+  "description": "Interactive Slack Messages from Chapter 8, Practical Bot Development",
+  "scripts": {
+    "start": "node app.js",
+    "debug": "node --nolazy --inspect-brk=9229 app.js"
+  },
+  "author": "Szymon Rozga",
+  "license": "MIT",
+  "dependencies": {
+    "botbuilder": "^3.14.1",
+    "dotenv-extended": "^1.0.4",
+    "restify": "^4.3.2",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "eslint": "^4.10.0",
+    "eslint-config-google": "^0.9.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1"
+  }
+}

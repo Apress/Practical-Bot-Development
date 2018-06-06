@@ -1,0 +1,3525 @@
+{
+  "luis_schema_version": "2.1.0",
+  "versionId": "0.2",
+  "name": "CalendarBotModel",
+  "desc": "",
+  "culture": "en-us",
+  "intents": [
+    {
+      "name": "AddCalendarEntry"
+    },
+    {
+      "name": "CheckAvailability"
+    },
+    {
+      "name": "DeleteCalendarEntry"
+    },
+    {
+      "name": "EditCalendarEntry"
+    },
+    {
+      "name": "Help"
+    },
+    {
+      "name": "Login"
+    },
+    {
+      "name": "None"
+    },
+    {
+      "name": "PrimaryCalendar"
+    },
+    {
+      "name": "ShowCalendarSummary"
+    }
+  ],
+  "entities": [
+    {
+      "name": "CalendarBot.Invitee"
+    },
+    {
+      "name": "CalendarBot.Location"
+    },
+    {
+      "name": "CalendarBot.Subject"
+    },
+    {
+      "name": "CalendarId"
+    },
+    {
+      "name": "EntryVisbility",
+      "children": [
+        "Private",
+        "Public"
+      ]
+    },
+    {
+      "name": "EventId"
+    },
+    {
+      "name": "MeetingMove",
+      "children": [
+        "FromTime",
+        "ToTime"
+      ]
+    }
+  ],
+  "composites": [
+    {
+      "name": "CalendarRequest",
+      "children": [
+        "CalendarBot.Location",
+        "CalendarBot.Subject",
+        "datetimeV2"
+      ]
+    }
+  ],
+  "closedLists": [
+    {
+      "name": "Action",
+      "subLists": [
+        {
+          "canonicalForm": "get",
+          "list": [
+            "get",
+            "show",
+            "retrieve"
+          ]
+        },
+        {
+          "canonicalForm": "set",
+          "list": [
+            "assign",
+            "reset"
+          ]
+        },
+        {
+          "canonicalForm": "remove",
+          "list": [
+            "clear"
+          ]
+        }
+      ]
+    }
+  ],
+  "bing_entities": [
+    "datetimeV2",
+    "email"
+  ],
+  "model_features": [
+    {
+      "name": "PrivateVisibility",
+      "mode": true,
+      "words": "hidden,secret,concealed,invisible,confidential,closed,private,privately,invisibly,secretly,in secret",
+      "activated": true
+    }
+  ],
+  "regex_features": [
+    {
+      "name": "LatLong",
+      "pattern": "[\\d]+.[\\d]*,[\\d]+.[\\d]*",
+      "activated": true
+    }
+  ],
+  "utterances": [
+    {
+      "text": "hi",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "login",
+      "intent": "Login",
+      "entities": []
+    },
+    {
+      "text": "help",
+      "intent": "Help",
+      "entities": []
+    },
+    {
+      "text": "i need help",
+      "intent": "Help",
+      "entities": []
+    },
+    {
+      "text": "what can i do?",
+      "intent": "Help",
+      "entities": []
+    },
+    {
+      "text": "what do i do?",
+      "intent": "Help",
+      "entities": []
+    },
+    {
+      "text": "please help",
+      "intent": "Help",
+      "entities": []
+    },
+    {
+      "text": "restart",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "what should i do?",
+      "intent": "Help",
+      "entities": []
+    },
+    {
+      "text": "log in",
+      "intent": "Login",
+      "entities": []
+    },
+    {
+      "text": "starbucks",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "donald trump",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "cancel appointment",
+      "intent": "DeleteCalendarEntry",
+      "entities": []
+    },
+    {
+      "text": "i don't understand",
+      "intent": "Help",
+      "entities": []
+    },
+    {
+      "text": "elephants",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i don't know what to do",
+      "intent": "Help",
+      "entities": []
+    },
+    {
+      "text": "30 minutes",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "sign in",
+      "intent": "Login",
+      "entities": []
+    },
+    {
+      "text": "signin",
+      "intent": "Login",
+      "entities": []
+    },
+    {
+      "text": "4pm",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "ritz",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "check availability",
+      "intent": "CheckAvailability",
+      "entities": []
+    },
+    {
+      "text": "remove meeting",
+      "intent": "DeleteCalendarEntry",
+      "entities": []
+    },
+    {
+      "text": "check my availability",
+      "intent": "CheckAvailability",
+      "entities": []
+    },
+    {
+      "text": "badger",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "sign on",
+      "intent": "Login",
+      "entities": []
+    },
+    {
+      "text": "yeti",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "agenda for tuesday",
+      "intent": "ShowCalendarSummary",
+      "entities": []
+    },
+    {
+      "text": "oreos",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "chicago bulls",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i am five",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "100 percent",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "theodore roosevelt",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "tomorrow at 5",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "what am i doing tomorrow?",
+      "intent": "ShowCalendarSummary",
+      "entities": []
+    },
+    {
+      "text": "add new appointment",
+      "intent": "AddCalendarEntry",
+      "entities": []
+    },
+    {
+      "text": "read latest nokia email",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "can you please resend my last text message ?",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "Please read my latest text from James",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "search for latest contacts",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i am trying to add last caller to my contact list",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read new text messages",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "please forward the last call",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read my most recent email",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "can you read me the last email that came into the live downtown miami account august eleven",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "read last fujitsu ' s email",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "can you read me my son ' s last text",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "ohi",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "ritz crackers",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "put a meeting on my calendar with john for an hour tomorrow at 3p",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 34,
+          "endPos": 37
+        }
+      ]
+    },
+    {
+      "text": "meet with kim at 5pm",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 10,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "create new entry",
+      "intent": "AddCalendarEntry",
+      "entities": []
+    },
+    {
+      "text": "add a horse to my barn",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "do something with my calendar",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "reschedule my 7am meeting",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "MeetingMove::FromTime",
+          "startPos": 14,
+          "endPos": 16
+        }
+      ]
+    },
+    {
+      "text": "appointment with jeff needs to be moved to 6pm",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 17,
+          "endPos": 20
+        },
+        {
+          "entity": "MeetingMove::ToTime",
+          "startPos": 43,
+          "endPos": 45
+        }
+      ]
+    },
+    {
+      "text": "change my meeting with kim to 2pm",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 23,
+          "endPos": 25
+        },
+        {
+          "entity": "MeetingMove::ToTime",
+          "startPos": 30,
+          "endPos": 32
+        }
+      ]
+    },
+    {
+      "text": "move my 1p appointment to 3pm",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "MeetingMove::FromTime",
+          "startPos": 8,
+          "endPos": 9
+        },
+        {
+          "entity": "MeetingMove::ToTime",
+          "startPos": 26,
+          "endPos": 28
+        }
+      ]
+    },
+    {
+      "text": "remove tuesday's meeting with joe",
+      "intent": "DeleteCalendarEntry",
+      "entities": []
+    },
+    {
+      "text": "cancel friday's 3p",
+      "intent": "DeleteCalendarEntry",
+      "entities": []
+    },
+    {
+      "text": "cancel my 5p appointment",
+      "intent": "DeleteCalendarEntry",
+      "entities": []
+    },
+    {
+      "text": "cancel my 1pm meeting",
+      "intent": "DeleteCalendarEntry",
+      "entities": []
+    },
+    {
+      "text": "what's the best time for teddy and i to meet on friday",
+      "intent": "CheckAvailability",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 25,
+          "endPos": 29
+        }
+      ]
+    },
+    {
+      "text": "check joe's calendar",
+      "intent": "CheckAvailability",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 6,
+          "endPos": 8
+        }
+      ]
+    },
+    {
+      "text": "when can i fit a 30 minute meeting",
+      "intent": "CheckAvailability",
+      "entities": []
+    },
+    {
+      "text": "when is kim available to meet for an hour?",
+      "intent": "CheckAvailability",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 8,
+          "endPos": 10
+        }
+      ]
+    },
+    {
+      "text": "show me event details for 7/28 meeting with jeff",
+      "intent": "ShowCalendarSummary",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 44,
+          "endPos": 47
+        }
+      ]
+    },
+    {
+      "text": "what's my meeting at 1pm about?",
+      "intent": "ShowCalendarSummary",
+      "entities": []
+    },
+    {
+      "text": "what am i doing on friday?",
+      "intent": "ShowCalendarSummary",
+      "entities": []
+    },
+    {
+      "text": "what do i have on my schedule today?",
+      "intent": "ShowCalendarSummary",
+      "entities": []
+    },
+    {
+      "text": "when am i meeting with kim?",
+      "intent": "ShowCalendarSummary",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 23,
+          "endPos": 25
+        }
+      ]
+    },
+    {
+      "text": "meet with kim about mortgage application at 5pm",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 20,
+          "endPos": 39
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 10,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "add entry on mortgage app",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 13,
+          "endPos": 24
+        }
+      ]
+    },
+    {
+      "text": "meet about meaning of life",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 11,
+          "endPos": 25
+        }
+      ]
+    },
+    {
+      "text": "create entry for bunnies and rabbits and hares at 1p",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 17,
+          "endPos": 45
+        }
+      ]
+    },
+    {
+      "text": "add new appointment about bot coding with john tomorrow at 9:30a",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 26,
+          "endPos": 35
+        }
+      ]
+    },
+    {
+      "text": "add meeting about hunting deer next friday at 2pm",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 18,
+          "endPos": 29
+        }
+      ]
+    },
+    {
+      "text": "add meeting with kim about dogs",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 27,
+          "endPos": 30
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 17,
+          "endPos": 19
+        }
+      ]
+    },
+    {
+      "text": "create new entry about bagels with lox",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 23,
+          "endPos": 37
+        }
+      ]
+    },
+    {
+      "text": "meet with david at 5pm about zombie hockey",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 29,
+          "endPos": 41
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 10,
+          "endPos": 14
+        }
+      ]
+    },
+    {
+      "text": "add meeting about radio flyer wagons",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 18,
+          "endPos": 35
+        }
+      ]
+    },
+    {
+      "text": "create new calendar entry about podcasts",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 32,
+          "endPos": 39
+        }
+      ]
+    },
+    {
+      "text": "create entry about coffee",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 19,
+          "endPos": 24
+        }
+      ]
+    },
+    {
+      "text": "meet with bob about junk",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 20,
+          "endPos": 23
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 10,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "meet with jeff about wallets and money",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 21,
+          "endPos": 37
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 10,
+          "endPos": 13
+        }
+      ]
+    },
+    {
+      "text": "let's meet to talk about rabbits and harmonicas and lawn care",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 25,
+          "endPos": 60
+        }
+      ]
+    },
+    {
+      "text": "create entry about hufflepuffs being the underdogs of harry potter world",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 19,
+          "endPos": 71
+        }
+      ]
+    },
+    {
+      "text": "create entry on headphone use with coffee pots and tacos",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 16,
+          "endPos": 55
+        }
+      ]
+    },
+    {
+      "text": "meet about winter is coming and no one seems to care at all",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 11,
+          "endPos": 58
+        }
+      ]
+    },
+    {
+      "text": "meet about badgers with lasers on their shark foreheads",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 11,
+          "endPos": 54
+        }
+      ]
+    },
+    {
+      "text": "add new appointment about crazy rabbits with headphones listening to shark music",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 26,
+          "endPos": 79
+        }
+      ]
+    },
+    {
+      "text": "meet to talk about lasers with rabbit headphones",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 19,
+          "endPos": 47
+        }
+      ]
+    },
+    {
+      "text": "remove meeting about harmonicas",
+      "intent": "DeleteCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 21,
+          "endPos": 30
+        }
+      ]
+    },
+    {
+      "text": "cancel meeting about rabbits",
+      "intent": "DeleteCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 21,
+          "endPos": 27
+        }
+      ]
+    },
+    {
+      "text": "remove meeting with kim about ice cream",
+      "intent": "DeleteCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 30,
+          "endPos": 38
+        }
+      ]
+    },
+    {
+      "text": "cancel appointment about horse racing and headphone building",
+      "intent": "DeleteCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 25,
+          "endPos": 59
+        }
+      ]
+    },
+    {
+      "text": "cancel meeting about bunnies",
+      "intent": "DeleteCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 21,
+          "endPos": 27
+        }
+      ]
+    },
+    {
+      "text": "delete my 1a",
+      "intent": "DeleteCalendarEntry",
+      "entities": []
+    },
+    {
+      "text": "delete meeting my 11am meeting",
+      "intent": "DeleteCalendarEntry",
+      "entities": []
+    },
+    {
+      "text": "reschedule my bot development appointment",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 14,
+          "endPos": 28
+        }
+      ]
+    },
+    {
+      "text": "change my appointment about the mortgage application",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 28,
+          "endPos": 51
+        }
+      ]
+    },
+    {
+      "text": "change my meeting about ice cream",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 24,
+          "endPos": 32
+        }
+      ]
+    },
+    {
+      "text": "edit meeting with kim",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 18,
+          "endPos": 20
+        }
+      ]
+    },
+    {
+      "text": "reschedule the code review meeting",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 15,
+          "endPos": 25
+        }
+      ]
+    },
+    {
+      "text": "cancel code review meeting",
+      "intent": "DeleteCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 7,
+          "endPos": 17
+        }
+      ]
+    },
+    {
+      "text": "cancel card game",
+      "intent": "DeleteCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 7,
+          "endPos": 15
+        }
+      ]
+    },
+    {
+      "text": "check my available tomorrow evening",
+      "intent": "CheckAvailability",
+      "entities": []
+    },
+    {
+      "text": "check my availablity after 1pm",
+      "intent": "CheckAvailability",
+      "entities": []
+    },
+    {
+      "text": "meet with kim to talk about family dinner at louie's at 12:30p",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 45,
+          "endPos": 51
+        },
+        {
+          "entity": "CalendarRequest",
+          "startPos": 28,
+          "endPos": 61
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 28,
+          "endPos": 40
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 10,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "meet about bunny hunting at starbucks tomorrow at 4p",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 28,
+          "endPos": 36
+        },
+        {
+          "entity": "CalendarRequest",
+          "startPos": 11,
+          "endPos": 51
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 11,
+          "endPos": 23
+        }
+      ]
+    },
+    {
+      "text": "add entry with teddy for ice cream at the dock at 6pm",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 38,
+          "endPos": 45
+        },
+        {
+          "entity": "CalendarRequest",
+          "startPos": 25,
+          "endPos": 52
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 25,
+          "endPos": 33
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 15,
+          "endPos": 19
+        }
+      ]
+    },
+    {
+      "text": "meet with grandma at club tomorrow 7pm",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 21,
+          "endPos": 24
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 10,
+          "endPos": 16
+        }
+      ]
+    },
+    {
+      "text": "meet to discuss rabbits",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 8,
+          "endPos": 22
+        }
+      ]
+    },
+    {
+      "text": "meet to write book at panera tomorrow morning",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 22,
+          "endPos": 27
+        },
+        {
+          "entity": "CalendarRequest",
+          "startPos": 8,
+          "endPos": 44
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 8,
+          "endPos": 17
+        }
+      ]
+    },
+    {
+      "text": "add entry for filling out forms",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 14,
+          "endPos": 30
+        }
+      ]
+    },
+    {
+      "text": "add meeting about hat design",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 18,
+          "endPos": 27
+        }
+      ]
+    },
+    {
+      "text": "add meeting at panera today at 1pm",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 15,
+          "endPos": 20
+        }
+      ]
+    },
+    {
+      "text": "add meeting at the park",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 15,
+          "endPos": 22
+        }
+      ]
+    },
+    {
+      "text": "meet at mcdonalds",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 8,
+          "endPos": 16
+        }
+      ]
+    },
+    {
+      "text": "meet in backyard for ice cream",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 8,
+          "endPos": 15
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 21,
+          "endPos": 29
+        }
+      ]
+    },
+    {
+      "text": "meet at the preserve",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 8,
+          "endPos": 19
+        }
+      ]
+    },
+    {
+      "text": "meet in library",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 8,
+          "endPos": 14
+        }
+      ]
+    },
+    {
+      "text": "meet at library",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 8,
+          "endPos": 14
+        }
+      ]
+    },
+    {
+      "text": "meet at gym",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 8,
+          "endPos": 10
+        }
+      ]
+    },
+    {
+      "text": "meet at the fair",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 8,
+          "endPos": 15
+        }
+      ]
+    },
+    {
+      "text": "meet at the fair on 12/4/2017",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 8,
+          "endPos": 15
+        }
+      ]
+    },
+    {
+      "text": "meet for snacks at burger king",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 19,
+          "endPos": 29
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 9,
+          "endPos": 14
+        }
+      ]
+    },
+    {
+      "text": "meet for dinner at bbq place",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 19,
+          "endPos": 27
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 9,
+          "endPos": 14
+        }
+      ]
+    },
+    {
+      "text": "meet for concert at the theater",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 20,
+          "endPos": 30
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 9,
+          "endPos": 15
+        }
+      ]
+    },
+    {
+      "text": "meet at train station",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 8,
+          "endPos": 20
+        }
+      ]
+    },
+    {
+      "text": "meet for conversation at penn station",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 25,
+          "endPos": 36
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 9,
+          "endPos": 20
+        }
+      ]
+    },
+    {
+      "text": "meet with attorney for lunch at joe's",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 32,
+          "endPos": 36
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 23,
+          "endPos": 27
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 10,
+          "endPos": 17
+        }
+      ]
+    },
+    {
+      "text": "meet with friends at the mall for shopping",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 21,
+          "endPos": 28
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 34,
+          "endPos": 41
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 10,
+          "endPos": 16
+        }
+      ]
+    },
+    {
+      "text": "meet at the car wash for a car wash",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 8,
+          "endPos": 14
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 27,
+          "endPos": 34
+        }
+      ]
+    },
+    {
+      "text": "add calendar entry for learning to play harmonica at house",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 53,
+          "endPos": 57
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 23,
+          "endPos": 48
+        }
+      ]
+    },
+    {
+      "text": "make an appointment at 1pm for relaxing",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 31,
+          "endPos": 38
+        }
+      ]
+    },
+    {
+      "text": "meet at bab's for lunch",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 8,
+          "endPos": 12
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 18,
+          "endPos": 22
+        }
+      ]
+    },
+    {
+      "text": "meet with kim and teddy at the preserve for a hike",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 27,
+          "endPos": 38
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 44,
+          "endPos": 49
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 10,
+          "endPos": 12
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 18,
+          "endPos": 22
+        }
+      ]
+    },
+    {
+      "text": "meet at louie's for social event",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 8,
+          "endPos": 14
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 20,
+          "endPos": 31
+        }
+      ]
+    },
+    {
+      "text": "meet with kim at yatch club for lunch",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 17,
+          "endPos": 26
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 32,
+          "endPos": 36
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 10,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "meet for pizza in park",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 18,
+          "endPos": 21
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 9,
+          "endPos": 13
+        }
+      ]
+    },
+    {
+      "text": "create entry at noon for pizza at the park",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 34,
+          "endPos": 41
+        },
+        {
+          "entity": "CalendarRequest",
+          "startPos": 16,
+          "endPos": 41
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 25,
+          "endPos": 29
+        }
+      ]
+    },
+    {
+      "text": "create entry at noon for pizza at the park and at 5p for drinks at the bar",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 34,
+          "endPos": 41
+        },
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 67,
+          "endPos": 73
+        },
+        {
+          "entity": "CalendarRequest",
+          "startPos": 16,
+          "endPos": 41
+        },
+        {
+          "entity": "CalendarRequest",
+          "startPos": 50,
+          "endPos": 73
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 25,
+          "endPos": 29
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 57,
+          "endPos": 62
+        }
+      ]
+    },
+    {
+      "text": "meet at trademark for lunch at noon and at starbucks for coffee at 2pm",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 8,
+          "endPos": 16
+        },
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 43,
+          "endPos": 51
+        },
+        {
+          "entity": "CalendarRequest",
+          "startPos": 8,
+          "endPos": 34
+        },
+        {
+          "entity": "CalendarRequest",
+          "startPos": 43,
+          "endPos": 69
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 22,
+          "endPos": 26
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 57,
+          "endPos": 62
+        }
+      ]
+    },
+    {
+      "text": "meet privately with recruiter at starbucks at 3pm",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "EntryVisbility::Private",
+          "startPos": 5,
+          "endPos": 13
+        },
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 33,
+          "endPos": 41
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 20,
+          "endPos": 28
+        }
+      ]
+    },
+    {
+      "text": "create invisible entry about new job at trademark at 9am",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "EntryVisbility::Private",
+          "startPos": 7,
+          "endPos": 15
+        },
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 40,
+          "endPos": 48
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 29,
+          "endPos": 35
+        }
+      ]
+    },
+    {
+      "text": "add public meeting with jeff about promotions at 3:30pm",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "EntryVisbility::Public",
+          "startPos": 4,
+          "endPos": 9
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 35,
+          "endPos": 44
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 24,
+          "endPos": 27
+        }
+      ]
+    },
+    {
+      "text": "add public entry tomorrow 2pm",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "EntryVisbility::Public",
+          "startPos": 4,
+          "endPos": 9
+        }
+      ]
+    },
+    {
+      "text": "create invisible meeting with teddy for waffles tomorrow am",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "EntryVisbility::Private",
+          "startPos": 7,
+          "endPos": 15
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 40,
+          "endPos": 46
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 30,
+          "endPos": 34
+        }
+      ]
+    },
+    {
+      "text": "create public entry for vacation from 8/1/2017 to 8/8/2017",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "EntryVisbility::Public",
+          "startPos": 7,
+          "endPos": 12
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 24,
+          "endPos": 31
+        }
+      ]
+    },
+    {
+      "text": "create new public meeting with jeff",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "EntryVisbility::Public",
+          "startPos": 11,
+          "endPos": 16
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 31,
+          "endPos": 34
+        }
+      ]
+    },
+    {
+      "text": "create private appointment with chelsea for dog treats",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "EntryVisbility::Private",
+          "startPos": 7,
+          "endPos": 13
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 44,
+          "endPos": 46
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 32,
+          "endPos": 38
+        }
+      ]
+    },
+    {
+      "text": "create new private appointment with teddy",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "EntryVisbility::Private",
+          "startPos": 11,
+          "endPos": 17
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 36,
+          "endPos": 40
+        }
+      ]
+    },
+    {
+      "text": "create new public meeting with kim",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "EntryVisbility::Public",
+          "startPos": 11,
+          "endPos": 16
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 31,
+          "endPos": 33
+        }
+      ]
+    },
+    {
+      "text": "i am 100 daysold",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "clal me at 212-111-1111",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i am five yeatrs old",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "thirty eight and a half",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i want 50 square feet",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i want 50 feet",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i want to meet from 1 to 5p",
+      "intent": "AddCalendarEntry",
+      "entities": []
+    },
+    {
+      "text": "add calendar entry for tomorrow 5pm",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 23,
+          "endPos": 30
+        }
+      ]
+    },
+    {
+      "text": "add calendar entry",
+      "intent": "AddCalendarEntry",
+      "entities": []
+    },
+    {
+      "text": "i want 50j",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "12 yen",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "let's go to madrid",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i am 2 days old",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "98 degreees",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "100 stiks",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "visit www.luis.ai",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i have 52 percent more than you",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "the great wall of china",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "visit www.website.com",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "one hundred sticks",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "chelesea is my second dog",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i want to meet at half past eight",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 18,
+          "endPos": 26
+        }
+      ]
+    },
+    {
+      "text": "water polo",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "iyou are first",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "tomorrow is july 21",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "12 quid",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "12 pence",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "tomorrow is july 26",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "let's talk about yesterday",
+      "intent": "AddCalendarEntry",
+      "entities": []
+    },
+    {
+      "text": "badgers",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "12 percent",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "tomorrow is july 22",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "meet with szymon.rozga@gmail.com at 5p tomorrow",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 10,
+          "endPos": 31
+        }
+      ]
+    },
+    {
+      "text": "i want to meet tomorrow morning",
+      "intent": "AddCalendarEntry",
+      "entities": []
+    },
+    {
+      "text": "i want to meet from 1am to 5p",
+      "intent": "AddCalendarEntry",
+      "entities": []
+    },
+    {
+      "text": "meet privately with invetigator",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "EntryVisbility::Private",
+          "startPos": 5,
+          "endPos": 13
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 20,
+          "endPos": 30
+        }
+      ]
+    },
+    {
+      "text": "i am 100 minutes old",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "meet at the beach for pizza",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 8,
+          "endPos": 16
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 22,
+          "endPos": 26
+        }
+      ]
+    },
+    {
+      "text": "i want to meet tomorrow between 1am and 5pm",
+      "intent": "AddCalendarEntry",
+      "entities": []
+    },
+    {
+      "text": "let's meet at zip code 11018",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 14,
+          "endPos": 16
+        }
+      ]
+    },
+    {
+      "text": "i want to meet from 1am to 5pm",
+      "intent": "AddCalendarEntry",
+      "entities": []
+    },
+    {
+      "text": "add public meetign with kim tomorrow 5pm at gotham",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "EntryVisbility::Public",
+          "startPos": 4,
+          "endPos": 9
+        },
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 44,
+          "endPos": 49
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 24,
+          "endPos": 26
+        }
+      ]
+    },
+    {
+      "text": "meet for coffee at panera tomorrow 2pm",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 19,
+          "endPos": 24
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 9,
+          "endPos": 14
+        }
+      ]
+    },
+    {
+      "text": "i want to meet daily",
+      "intent": "AddCalendarEntry",
+      "entities": []
+    },
+    {
+      "text": "i measure 50 square meters srozga@bangdazzle.com",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i want to meet tomorrow at 5pm",
+      "intent": "AddCalendarEntry",
+      "entities": []
+    },
+    {
+      "text": "tomorrow is july 19",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "bostwana",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "100 sticks",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i want 50 pence",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i want 50 pounds",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i am 100 seconds old",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "add public meetign with jeff",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "EntryVisbility::Public",
+          "startPos": 4,
+          "endPos": 9
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 24,
+          "endPos": 27
+        }
+      ]
+    },
+    {
+      "text": "i want to meet for an hour",
+      "intent": "AddCalendarEntry",
+      "entities": []
+    },
+    {
+      "text": "i want to meet tomorrow at half past eight",
+      "intent": "AddCalendarEntry",
+      "entities": []
+    },
+    {
+      "text": "i want to meet tomorrow at 8:30",
+      "intent": "AddCalendarEntry",
+      "entities": []
+    },
+    {
+      "text": "i want to meet tomorrow from 1am to 5pm",
+      "intent": "AddCalendarEntry",
+      "entities": []
+    },
+    {
+      "text": "i want 50 joules",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "let's go to madrid, spain",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i am five months old",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "meet at 34.54,554.65",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 8,
+          "endPos": 19
+        }
+      ]
+    },
+    {
+      "text": "meet with kim at 65,34",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 17,
+          "endPos": 21
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 10,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "meet kim tomorrow",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 5,
+          "endPos": 7
+        }
+      ]
+    },
+    {
+      "text": "create appointment to meet teddy at 7pm",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 27,
+          "endPos": 31
+        }
+      ]
+    },
+    {
+      "text": "meet joe at starbucks",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 12,
+          "endPos": 20
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 5,
+          "endPos": 7
+        }
+      ]
+    },
+    {
+      "text": "add appointment with james at 5pm",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 21,
+          "endPos": 25
+        }
+      ]
+    },
+    {
+      "text": "meet james at 3pm on friday",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 5,
+          "endPos": 9
+        }
+      ]
+    },
+    {
+      "text": "meet jerry tomorrow evening",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 5,
+          "endPos": 9
+        }
+      ]
+    },
+    {
+      "text": "meet with gerry in a week",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 10,
+          "endPos": 14
+        }
+      ]
+    },
+    {
+      "text": "delete meeting at 6pm",
+      "intent": "DeleteCalendarEntry",
+      "entities": []
+    },
+    {
+      "text": "check for availability for 2pm",
+      "intent": "CheckAvailability",
+      "entities": []
+    },
+    {
+      "text": "check availability at 4pm",
+      "intent": "CheckAvailability",
+      "entities": []
+    },
+    {
+      "text": "when am i available in a week?",
+      "intent": "CheckAvailability",
+      "entities": []
+    },
+    {
+      "text": "am i available tomorrow afternoon?",
+      "intent": "CheckAvailability",
+      "entities": []
+    },
+    {
+      "text": "am i available at 5pm?",
+      "intent": "CheckAvailability",
+      "entities": []
+    },
+    {
+      "text": "am i available tomorrow?",
+      "intent": "CheckAvailability",
+      "entities": []
+    },
+    {
+      "text": "am i available tomorrow at 5pm?",
+      "intent": "CheckAvailability",
+      "entities": []
+    },
+    {
+      "text": "what's on my docket for tomorrow?",
+      "intent": "ShowCalendarSummary",
+      "entities": []
+    },
+    {
+      "text": "what am i doing at 4pm tomorrow",
+      "intent": "ShowCalendarSummary",
+      "entities": []
+    },
+    {
+      "text": "what's on my agenda next monday?",
+      "intent": "ShowCalendarSummary",
+      "entities": []
+    },
+    {
+      "text": "show appointments for tomorrow afternoon",
+      "intent": "ShowCalendarSummary",
+      "entities": []
+    },
+    {
+      "text": "show agenda for tomorrow",
+      "intent": "ShowCalendarSummary",
+      "entities": []
+    },
+    {
+      "text": "show summary for tomorrow",
+      "intent": "ShowCalendarSummary",
+      "entities": []
+    },
+    {
+      "text": "move meeting with kim from 2pm to 4pm",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 18,
+          "endPos": 20
+        },
+        {
+          "entity": "MeetingMove::FromTime",
+          "startPos": 27,
+          "endPos": 29
+        },
+        {
+          "entity": "MeetingMove::ToTime",
+          "startPos": 34,
+          "endPos": 36
+        }
+      ]
+    },
+    {
+      "text": "change my appointment with jeff to tomorrow at 1pm",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 27,
+          "endPos": 30
+        },
+        {
+          "entity": "MeetingMove::ToTime",
+          "startPos": 35,
+          "endPos": 49
+        }
+      ]
+    },
+    {
+      "text": "move 2pm appointment to 4p on monday",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "MeetingMove::FromTime",
+          "startPos": 5,
+          "endPos": 7
+        },
+        {
+          "entity": "MeetingMove::ToTime",
+          "startPos": 24,
+          "endPos": 35
+        }
+      ]
+    },
+    {
+      "text": "move tomorrow's 2pm meeting to 5pm",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "MeetingMove::FromTime",
+          "startPos": 16,
+          "endPos": 18
+        },
+        {
+          "entity": "MeetingMove::ToTime",
+          "startPos": 31,
+          "endPos": 33
+        }
+      ]
+    },
+    {
+      "text": "change my appointment from 7:30am to 4pm",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "MeetingMove::FromTime",
+          "startPos": 27,
+          "endPos": 32
+        },
+        {
+          "entity": "MeetingMove::ToTime",
+          "startPos": 37,
+          "endPos": 39
+        }
+      ]
+    },
+    {
+      "text": "move my appointment with teddy to 8pm",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 25,
+          "endPos": 29
+        },
+        {
+          "entity": "MeetingMove::ToTime",
+          "startPos": 34,
+          "endPos": 36
+        }
+      ]
+    },
+    {
+      "text": "move meeting with john to tomorrow 2pm",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "MeetingMove::ToTime",
+          "startPos": 26,
+          "endPos": 37
+        }
+      ]
+    },
+    {
+      "text": "change meeting with bob to tomorrow 2pm from 1pm",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "MeetingMove::FromTime",
+          "startPos": 45,
+          "endPos": 47
+        },
+        {
+          "entity": "MeetingMove::ToTime",
+          "startPos": 27,
+          "endPos": 38
+        }
+      ]
+    },
+    {
+      "text": "move appointment with theo to 6p",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 22,
+          "endPos": 25
+        },
+        {
+          "entity": "MeetingMove::ToTime",
+          "startPos": 30,
+          "endPos": 31
+        }
+      ]
+    },
+    {
+      "text": "cancel 6pm meeting tomorrow",
+      "intent": "DeleteCalendarEntry",
+      "entities": []
+    },
+    {
+      "text": "cancel 2pm",
+      "intent": "DeleteCalendarEntry",
+      "entities": []
+    },
+    {
+      "text": "cancel meeting with attorneys",
+      "intent": "DeleteCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 20,
+          "endPos": 28
+        }
+      ]
+    },
+    {
+      "text": "delete today's meeting with theo",
+      "intent": "DeleteCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 28,
+          "endPos": 31
+        }
+      ]
+    },
+    {
+      "text": "move meeting on 2/5 5pm to 2/4 2pm",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "MeetingMove::FromTime",
+          "startPos": 16,
+          "endPos": 22
+        },
+        {
+          "entity": "MeetingMove::ToTime",
+          "startPos": 27,
+          "endPos": 33
+        }
+      ]
+    },
+    {
+      "text": "move meeting on friday 1pm to monday 5pm",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "MeetingMove::FromTime",
+          "startPos": 16,
+          "endPos": 25
+        },
+        {
+          "entity": "MeetingMove::ToTime",
+          "startPos": 30,
+          "endPos": 39
+        }
+      ]
+    },
+    {
+      "text": "move coffee to 4pm",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 5,
+          "endPos": 10
+        },
+        {
+          "entity": "MeetingMove::ToTime",
+          "startPos": 15,
+          "endPos": 17
+        }
+      ]
+    },
+    {
+      "text": "move interview to 8a monday",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 5,
+          "endPos": 13
+        },
+        {
+          "entity": "MeetingMove::ToTime",
+          "startPos": 18,
+          "endPos": 26
+        }
+      ]
+    },
+    {
+      "text": "move subject to tomorrow 6pm",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 5,
+          "endPos": 11
+        },
+        {
+          "entity": "MeetingMove::ToTime",
+          "startPos": 16,
+          "endPos": 27
+        }
+      ]
+    },
+    {
+      "text": "move coffee to tomorrow",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 5,
+          "endPos": 10
+        },
+        {
+          "entity": "MeetingMove::ToTime",
+          "startPos": 15,
+          "endPos": 22
+        }
+      ]
+    },
+    {
+      "text": "move my 2pm meeting to tomorrow 4p",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "MeetingMove::FromTime",
+          "startPos": 8,
+          "endPos": 10
+        },
+        {
+          "entity": "MeetingMove::ToTime",
+          "startPos": 23,
+          "endPos": 33
+        }
+      ]
+    },
+    {
+      "text": "move the 4pm tomorrow meeting to 5pm",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "MeetingMove::FromTime",
+          "startPos": 9,
+          "endPos": 20
+        },
+        {
+          "entity": "MeetingMove::ToTime",
+          "startPos": 33,
+          "endPos": 35
+        }
+      ]
+    },
+    {
+      "text": "what am i doing with kim tomorrow?",
+      "intent": "ShowCalendarSummary",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 21,
+          "endPos": 23
+        }
+      ]
+    },
+    {
+      "text": "what am i doing with teddy in a week?",
+      "intent": "ShowCalendarSummary",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 21,
+          "endPos": 25
+        }
+      ]
+    },
+    {
+      "text": "move coffee to 3pm",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 5,
+          "endPos": 10
+        },
+        {
+          "entity": "MeetingMove::ToTime",
+          "startPos": 15,
+          "endPos": 17
+        }
+      ]
+    },
+    {
+      "text": "move attorney meeting to 1 hour from now",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 5,
+          "endPos": 20
+        },
+        {
+          "entity": "MeetingMove::ToTime",
+          "startPos": 25,
+          "endPos": 39
+        }
+      ]
+    },
+    {
+      "text": "move meeting about title thingy to 1am",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 19,
+          "endPos": 30
+        }
+      ]
+    },
+    {
+      "text": "move title thingy to tomorrow 2pm",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 5,
+          "endPos": 16
+        },
+        {
+          "entity": "MeetingMove::ToTime",
+          "startPos": 21,
+          "endPos": 32
+        }
+      ]
+    },
+    {
+      "text": "move badger to 5pm",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 5,
+          "endPos": 10
+        },
+        {
+          "entity": "MeetingMove::ToTime",
+          "startPos": 15,
+          "endPos": 17
+        }
+      ]
+    },
+    {
+      "text": "move tomorrow's 5pm to 2pm",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "MeetingMove::FromTime",
+          "startPos": 5,
+          "endPos": 18
+        },
+        {
+          "entity": "MeetingMove::ToTime",
+          "startPos": 23,
+          "endPos": 25
+        }
+      ]
+    },
+    {
+      "text": "add public meetign with kim tomorrow 5pm in new york",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "EntryVisbility::Public",
+          "startPos": 4,
+          "endPos": 9
+        },
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 44,
+          "endPos": 51
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 24,
+          "endPos": 26
+        }
+      ]
+    },
+    {
+      "text": "remove meetign with kim",
+      "intent": "DeleteCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 20,
+          "endPos": 22
+        }
+      ]
+    },
+    {
+      "text": "move cofffee to 5pm",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 5,
+          "endPos": 11
+        },
+        {
+          "entity": "MeetingMove::ToTime",
+          "startPos": 16,
+          "endPos": 18
+        }
+      ]
+    },
+    {
+      "text": "move 4pm to tomorrow",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 5,
+          "endPos": 7
+        },
+        {
+          "entity": "MeetingMove::ToTime",
+          "startPos": 12,
+          "endPos": 19
+        }
+      ]
+    },
+    {
+      "text": "i want to meet all day",
+      "intent": "AddCalendarEntry",
+      "entities": []
+    },
+    {
+      "text": "create entry at noon for pizza at the park and at 5p for drinks at the bar in new york",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 34,
+          "endPos": 41
+        },
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 67,
+          "endPos": 73
+        },
+        {
+          "entity": "CalendarRequest",
+          "startPos": 16,
+          "endPos": 41
+        },
+        {
+          "entity": "CalendarRequest",
+          "startPos": 50,
+          "endPos": 73
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 25,
+          "endPos": 29
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 57,
+          "endPos": 62
+        }
+      ]
+    },
+    {
+      "text": "remove meeting with kim",
+      "intent": "DeleteCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 20,
+          "endPos": 22
+        }
+      ]
+    },
+    {
+      "text": "add calendar entry first",
+      "intent": "AddCalendarEntry",
+      "entities": []
+    },
+    {
+      "text": "i am five years old",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "meet with teedy for ice cream",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 20,
+          "endPos": 28
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 10,
+          "endPos": 14
+        }
+      ]
+    },
+    {
+      "text": "what am i doing wiht kim tomorrow?",
+      "intent": "ShowCalendarSummary",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 21,
+          "endPos": 23
+        }
+      ]
+    },
+    {
+      "text": "meet with jason at 2p for 1:1",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 26,
+          "endPos": 28
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 10,
+          "endPos": 14
+        }
+      ]
+    },
+    {
+      "text": "meet with teddy at 10a for breakfast",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 27,
+          "endPos": 35
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 10,
+          "endPos": 14
+        }
+      ]
+    },
+    {
+      "text": "meet with tedy at 4pm",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 10,
+          "endPos": 13
+        }
+      ]
+    },
+    {
+      "text": "add public meetign with kim tomorrow 5pm in gohtam",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "EntryVisbility::Public",
+          "startPos": 4,
+          "endPos": 9
+        },
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 44,
+          "endPos": 49
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 24,
+          "endPos": 26
+        }
+      ]
+    },
+    {
+      "text": "meet with bob for coffee",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 18,
+          "endPos": 23
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 10,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "meet for coffee with bob at starbucks",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 28,
+          "endPos": 36
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 9,
+          "endPos": 14
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 21,
+          "endPos": 23
+        }
+      ]
+    },
+    {
+      "text": "meet for coffee with james at starbucks tomorrow at 7pm",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 30,
+          "endPos": 38
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 9,
+          "endPos": 14
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 21,
+          "endPos": 25
+        }
+      ]
+    },
+    {
+      "text": "meet with kim at 5pm for coffee at home",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 35,
+          "endPos": 38
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 25,
+          "endPos": 30
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 10,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "meet with jeff at 5pm for coffee at starbucks",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 36,
+          "endPos": 44
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 26,
+          "endPos": 31
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 10,
+          "endPos": 13
+        }
+      ]
+    },
+    {
+      "text": "meet with teddy at 2:45pm for one on one at the office",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 44,
+          "endPos": 53
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 30,
+          "endPos": 39
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 10,
+          "endPos": 14
+        }
+      ]
+    },
+    {
+      "text": "move meeting with kim from 1pm to 7pm",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 18,
+          "endPos": 20
+        },
+        {
+          "entity": "MeetingMove::FromTime",
+          "startPos": 27,
+          "endPos": 29
+        },
+        {
+          "entity": "MeetingMove::ToTime",
+          "startPos": 34,
+          "endPos": 36
+        }
+      ]
+    },
+    {
+      "text": "reschedule meeting with james to 1am",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 24,
+          "endPos": 28
+        },
+        {
+          "entity": "MeetingMove::ToTime",
+          "startPos": 33,
+          "endPos": 35
+        }
+      ]
+    },
+    {
+      "text": "move meeting with jeffto 4pm",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 18,
+          "endPos": 23
+        },
+        {
+          "entity": "MeetingMove::ToTime",
+          "startPos": 25,
+          "endPos": 27
+        }
+      ]
+    },
+    {
+      "text": "check bob's availability for tomorrow",
+      "intent": "CheckAvailability",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 6,
+          "endPos": 8
+        }
+      ]
+    },
+    {
+      "text": "when is joe available next monday?",
+      "intent": "CheckAvailability",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 8,
+          "endPos": 10
+        }
+      ]
+    },
+    {
+      "text": "is jeff available tomorrow at 3pm",
+      "intent": "CheckAvailability",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 3,
+          "endPos": 6
+        }
+      ]
+    },
+    {
+      "text": "check my availability around 6pm",
+      "intent": "CheckAvailability",
+      "entities": []
+    },
+    {
+      "text": "check jeff's availability for tomorrow",
+      "intent": "CheckAvailability",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 6,
+          "endPos": 9
+        }
+      ]
+    },
+    {
+      "text": "what's going on with teddy next week",
+      "intent": "ShowCalendarSummary",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 21,
+          "endPos": 25
+        }
+      ]
+    },
+    {
+      "text": "what am i doing in a year with misty",
+      "intent": "ShowCalendarSummary",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 31,
+          "endPos": 35
+        }
+      ]
+    },
+    {
+      "text": "what am i doing next week with john",
+      "intent": "ShowCalendarSummary",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 31,
+          "endPos": 34
+        }
+      ]
+    },
+    {
+      "text": "what am i doing from 9/10 until 9/20 with harry",
+      "intent": "ShowCalendarSummary",
+      "entities": [
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 42,
+          "endPos": 46
+        }
+      ]
+    },
+    {
+      "text": "meet with sasha at 10am about stuff in the offie",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 39,
+          "endPos": 47
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 30,
+          "endPos": 34
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 10,
+          "endPos": 14
+        }
+      ]
+    },
+    {
+      "text": "meet with jason at 2pm about ltos of things in the library",
+      "intent": "AddCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Location",
+          "startPos": 47,
+          "endPos": 57
+        },
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 29,
+          "endPos": 42
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 10,
+          "endPos": 14
+        }
+      ]
+    },
+    {
+      "text": "move coffee with kim to 8pm",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "CalendarBot.Subject",
+          "startPos": 5,
+          "endPos": 10
+        },
+        {
+          "entity": "CalendarBot.Invitee",
+          "startPos": 17,
+          "endPos": 19
+        },
+        {
+          "entity": "MeetingMove::ToTime",
+          "startPos": 24,
+          "endPos": 26
+        }
+      ]
+    },
+    {
+      "text": "move meetign from 5pm to 7pm",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "MeetingMove::FromTime",
+          "startPos": 18,
+          "endPos": 20
+        },
+        {
+          "entity": "MeetingMove::ToTime",
+          "startPos": 25,
+          "endPos": 27
+        }
+      ]
+    },
+    {
+      "text": "moe meeting from 1am to 5am",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "MeetingMove::FromTime",
+          "startPos": 17,
+          "endPos": 19
+        },
+        {
+          "entity": "MeetingMove::ToTime",
+          "startPos": 24,
+          "endPos": 26
+        }
+      ]
+    },
+    {
+      "text": "move meeting from 1pm to 8pm",
+      "intent": "EditCalendarEntry",
+      "entities": [
+        {
+          "entity": "MeetingMove::FromTime",
+          "startPos": 18,
+          "endPos": 20
+        },
+        {
+          "entity": "MeetingMove::ToTime",
+          "startPos": 25,
+          "endPos": 27
+        }
+      ]
+    },
+    {
+      "text": "what's going on tomorrow at 5pm",
+      "intent": "ShowCalendarSummary",
+      "entities": []
+    },
+    {
+      "text": "what's going on from 1pm to 6pm",
+      "intent": "ShowCalendarSummary",
+      "entities": [
+        {
+          "entity": "MeetingMove::FromTime",
+          "startPos": 21,
+          "endPos": 23
+        },
+        {
+          "entity": "MeetingMove::ToTime",
+          "startPos": 28,
+          "endPos": 30
+        }
+      ]
+    },
+    {
+      "text": "cancel 6pm meeting",
+      "intent": "DeleteCalendarEntry",
+      "entities": []
+    },
+    {
+      "text": "delete event with id 123123123123",
+      "intent": "DeleteCalendarEntry",
+      "entities": [
+        {
+          "entity": "EventId",
+          "startPos": 21,
+          "endPos": 32
+        }
+      ]
+    },
+    {
+      "text": "delete event with id 97t84psgtshe911111dsagvc0",
+      "intent": "DeleteCalendarEntry",
+      "entities": [
+        {
+          "entity": "EventId",
+          "startPos": 21,
+          "endPos": 45
+        }
+      ]
+    },
+    {
+      "text": "delete event with id 97t84psgtshe99nkj18s7ogvc0",
+      "intent": "DeleteCalendarEntry",
+      "entities": [
+        {
+          "entity": "EventId",
+          "startPos": 21,
+          "endPos": 46
+        }
+      ]
+    },
+    {
+      "text": "delete event with id bbb13128318293",
+      "intent": "DeleteCalendarEntry",
+      "entities": [
+        {
+          "entity": "EventId",
+          "startPos": 21,
+          "endPos": 34
+        }
+      ]
+    },
+    {
+      "text": "delete event with id asdlmasd;a,123",
+      "intent": "DeleteCalendarEntry",
+      "entities": [
+        {
+          "entity": "EventId",
+          "startPos": 21,
+          "endPos": 28
+        }
+      ]
+    },
+    {
+      "text": "delete event with id abdsa",
+      "intent": "DeleteCalendarEntry",
+      "entities": [
+        {
+          "entity": "EventId",
+          "startPos": 21,
+          "endPos": 25
+        }
+      ]
+    },
+    {
+      "text": "i want to meet from feb 1 to february 20th",
+      "intent": "AddCalendarEntry",
+      "entities": []
+    },
+    {
+      "text": "clear primary calendar",
+      "intent": "PrimaryCalendar",
+      "entities": []
+    },
+    {
+      "text": "reset primary calendar",
+      "intent": "PrimaryCalendar",
+      "entities": []
+    },
+    {
+      "text": "show primary calendar",
+      "intent": "PrimaryCalendar",
+      "entities": []
+    },
+    {
+      "text": "get primary calendar",
+      "intent": "PrimaryCalendar",
+      "entities": []
+    },
+    {
+      "text": "set primary calendar to g234hasdl23412",
+      "intent": "PrimaryCalendar",
+      "entities": [
+        {
+          "entity": "CalendarId",
+          "startPos": 24,
+          "endPos": 37
+        }
+      ]
+    },
+    {
+      "text": "set primary calendar to 123123123",
+      "intent": "PrimaryCalendar",
+      "entities": [
+        {
+          "entity": "CalendarId",
+          "startPos": 24,
+          "endPos": 32
+        }
+      ]
+    },
+    {
+      "text": "set primary calendar to asdnkasndlasd",
+      "intent": "PrimaryCalendar",
+      "entities": [
+        {
+          "entity": "CalendarId",
+          "startPos": 24,
+          "endPos": 36
+        }
+      ]
+    },
+    {
+      "text": "set primary calendar to 5is6mndv3bh6op2ae0taoo5vg4@group.calendar.google.com",
+      "intent": "PrimaryCalendar",
+      "entities": [
+        {
+          "entity": "CalendarId",
+          "startPos": 24,
+          "endPos": 75
+        }
+      ]
+    },
+    {
+      "text": "set primary calendar to v",
+      "intent": "PrimaryCalendar",
+      "entities": [
+        {
+          "entity": "CalendarId",
+          "startPos": 24,
+          "endPos": 24
+        }
+      ]
+    },
+    {
+      "text": "set primary calendar to askdnaskln213123maslda@23412nsd.wfknweoinrwrem",
+      "intent": "PrimaryCalendar",
+      "entities": [
+        {
+          "entity": "CalendarId",
+          "startPos": 24,
+          "endPos": 69
+        }
+      ]
+    },
+    {
+      "text": "set primary calendar to 23y12893h@234sd.sdfsdf.3234",
+      "intent": "PrimaryCalendar",
+      "entities": [
+        {
+          "entity": "CalendarId",
+          "startPos": 24,
+          "endPos": 50
+        }
+      ]
+    }
+  ]
+}

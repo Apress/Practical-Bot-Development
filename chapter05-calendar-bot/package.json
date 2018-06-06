@@ -1,0 +1,17 @@
+{
+  "name": "practical-bot-development-dialog-basics",
+  "version": "1.0.0",
+  "description": "Calendar Bot Basic Dialog Bot - Practical Bot Development",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Szymon Rozga",
+  "license": "MIT",
+  "dependencies": {
+    "botbuilder": "^3.9.1",
+    "dotenv-extended": "^1.0.4",
+    "momentjs": "^2.0.0",
+    "restify": "^4.3.0",
+    "underscore": "^1.8.3"
+  }
+}

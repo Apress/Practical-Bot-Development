@@ -1,0 +1,31 @@
+{
+  "name": "hot-dog-or-not-hot-dog-sample",
+  "version": "1.0.0",
+  "description": "Hot Dog or Not Hot Dog from Chapter 9, Practical Bot Development",
+  "scripts": {
+    "start": "node app.js",
+    "debug": "node --nolazy --inspect-brk=9229 app.js"
+  },
+  "author": "Szymon Rozga",
+  "license": "MIT",
+  "dependencies": {
+    "botbuilder": "^3.12.0",
+    "cognitive-services": "^0.6.2",
+    "dotenv-extended": "^1.0.4",
+    "moment": "^2.19.3",
+    "request": "^2.83.0",
+    "restify": "^4.3.2",
+    "underscore": "^1.8.3",
+    "uuid": "^3.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.10.0",
+    "eslint-config-google": "^0.9.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1"
+  },
+  "main": "app.js"
+}

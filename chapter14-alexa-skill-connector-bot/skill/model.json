@@ -1,0 +1,324 @@
+{
+    "languageModel": {
+      "types": [
+        {
+          "name": "AccountType",
+          "values": [
+            {
+              "id": null,
+              "name": {
+                "value": "401k",
+                "synonyms": [
+                  "401(k)",
+                  "401 k",
+                  "four oh one k"
+                ]
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "403b",
+                "synonyms": [
+                  "403(b)",
+                  "403 b",
+                  "four oh three b"
+                ]
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "savings",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "checkings",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "roth ira",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "ira",
+                "synonyms": [
+                  "traditional ira"
+                ]
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "529",
+                "synonyms": [
+                  "five twenty nine"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "QuoteItem",
+          "values": [
+            {
+              "id": null,
+              "name": {
+                "value": "microsoft",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "apple",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "delta airtlines",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "d a l",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "a a p l",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "m s f t",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "f b",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "t w t r",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "company x",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "fort",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "ford",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "alphabet",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "exxon",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "comcast",
+                "synonyms": []
+              }
+            }
+          ]
+        }
+      ],
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.MoreIntent",
+          "samples": [
+            "get more information"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateSettingsIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NextIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PageDownIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PageUpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PreviousIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollDownIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollLeftIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollRightIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollUpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "GetAccountTypeInformationIntent",
+          "samples": [
+            "get information for {AccountType} accounts",
+            "what is a {AccountType}",
+            "what type of {AccountType} do you have",
+            "can you tell me about your {AccountType}",
+            "get account information for {AccountType}"
+          ],
+          "slots": [
+            {
+              "name": "AccountType",
+              "type": "AccountType",
+              "samples": [
+                "{AccountType}"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "QuoteIntent",
+          "samples": [
+            "what is the price for {QuoteItem}",
+            "quote {QuoteItem}",
+            "price for {QuoteItem}"
+          ],
+          "slots": [
+            {
+              "name": "QuoteItem",
+              "type": "QuoteItem",
+              "samples": [
+                "{QuoteItem}"
+              ]
+            }
+          ]
+        }
+      ],
+      "invocationName": "finance bot"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Intent-GetAccountTypeInformationIntent.IntentSlot-AccountType",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What account type are you interested in?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Intent-QuoteIntent.IntentSlot-QuoteItem",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What would you like a quote for?"
+          }
+        ]
+      }
+    ],
+    "dialog": {
+      "intents": [
+        {
+          "name": "GetAccountTypeInformationIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "AccountType",
+              "type": "AccountType",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Intent-GetAccountTypeInformationIntent.IntentSlot-AccountType"
+              }
+            }
+          ]
+        },
+        {
+          "name": "QuoteIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "QuoteItem",
+              "type": "QuoteItem",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Intent-QuoteIntent.IntentSlot-QuoteItem"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
