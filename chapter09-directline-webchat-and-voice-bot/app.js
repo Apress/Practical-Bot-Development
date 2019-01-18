@@ -5,9 +5,12 @@ const restify = require('restify');
 const moment = require('moment');
 const _ = require('underscore');
 const md5 = require('md5');
-const BingSpeechClient = require('bingspeech-api-client').BingSpeechClient;
 const fs = require('fs');
+const path = require('path');
 const twilio = require('twilio');
+const rp = require('request-promise');
+const request = require('request');
+const xmlbuilder = require('xmlbuilder');
 
 // Setup Restify Server
 const server = restify.createServer();
@@ -68,10 +71,9 @@ server.post('/api/token/refresh', (req, res, next) => {
     });
 });
 
-const bing = new BingSpeechClient(process.env.MICROSOFT_BING_SPEECH_KEY);
-function generateAudio (text) {
+function generateAudio(text) {
     const id = md5(text);
-    const file = 'public\\audio\\' + id + '.wav';
+    const file = path.join('public', 'audio', id + '.wav');
     const resultingUri = process.env.BASE_URI + '/audio/' + id + '.wav';
 
     if (!fs.existsSync('public')) fs.mkdirSync('public');
@@ -81,16 +83,86 @@ function generateAudio (text) {
         return Promise.resolve(resultingUri);
     }
 
-    return bing.synthesize(text).then(result => {
-        const wstream = fs.createWriteStream(file);
-        wstream.write(result.wave);
+    const t = textToSpeech(process.env.SPEECH_SERVICE_KEY, saveAudio, text, file);
 
+
+    return t.then(() => {
         console.log('created %s', resultingUri);
         return resultingUri;
     });
 }
 
+function textToSpeech(subscriptionKey, saveAudio, text, filename) {
+    let options = {
+        method: 'POST',
+        uri: 'https://westus2.api.cognitive.microsoft.com/sts/v1.0/issueToken',
+        headers: {
+            'Ocp-Apim-Subscription-Key': subscriptionKey
+        }
+    };
+
+    return rp(options).then((body) => {
+        console.log("Getting your token...\n");
+        return saveAudio(body, text, filename);
+    }).catch(error => {
+        throw new Error(error);
+    });
+}
+
+/* Make sure to update User-Agent with the name of your resource.
+   You can also change the voice and output formats. See:
+   https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech */
+function saveAudio(accessToken, text, filename) {
+    // Create the SSML request.
+    let xml_body = xmlbuilder.create('speak')
+        .att('version', '1.0')
+        .att('xml:lang', 'en-us')
+        .ele('voice')
+        .att('xml:lang', 'en-us')
+        .att('name', 'Microsoft Server Speech Text to Speech Voice (en-US, Guy24KRUS)')
+        .txt('[PLACEHOLDER]')
+        .end();
+    // Convert the XML into a string to send in the TTS request.
+    let body = xml_body.toString();
+    body = body.replace('[PLACEHOLDER]', text);
+    
+    /* This sample assumes your resource was created in the WEST US region. If you
+       are using a different region, please update the uri. */
+    let options = {
+        method: 'POST',
+        baseUrl: 'https://westus2.tts.speech.microsoft.com/',
+        url: 'cognitiveservices/v1',
+        headers: {
+            'Authorization': 'Bearer ' + accessToken,
+            'cache-control': 'no-cache',
+            'User-Agent': 'speech-test',
+            'X-Microsoft-OutputFormat': 'riff-24khz-16bit-mono-pcm',
+            'Content-Type': 'application/ssml+xml'
+        },
+        body: body
+    };
+    /* This function makes the request to convert speech to text.
+       The speech is returned as the response. */
+    function convertText(error, response, body) {
+        if (!error && response.statusCode == 200) {
+            console.log("Converting text-to-speech. Please hold...\n")
+        }
+        else {
+            throw new Error(error);
+        }
+        console.log("Your file is ready.\n")
+    }
+    return new Promise(resolve =>
+        request(options, convertText)
+            .pipe(fs.createWriteStream(filename))
+            .on('finish', function () {
+                console.log('done!');
+                resolve();
+            }));
+}
+
 server.get('/api/audio-test', (req, res, next) => {
+    console.log(process.env.SPEECH_SERVICE_KEY);
     const sample = 'Here are <say-as interpret-as="characters">SSML</say-as> samples. I can pause <break time="3s"/>.' +
         'I can speak in cardinals. Your number is <say-as interpret-as="cardinal">10</say-as>.' +
         'Or I can even speak in digits. The digits for ten are <say-as interpret-as="characters">10</say-as>.' +
@@ -99,6 +171,7 @@ server.get('/api/audio-test', (req, res, next) => {
         '<p><s>This is sentence one.</s><s>This is sentence two.</s></p>';
 
     generateAudio(sample + ' ' + new Date().getTime()).then(uri => {
+        console.log('sending uri ' + uri);
         res.send(200, {
             uri: uri
         });
@@ -224,7 +297,7 @@ server.post('/api/voice/gather', (req, res, next) => {
     });
 });
 
-function buildAndSendHangup (req, res, next) {
+function buildAndSendHangup(req, res, next) {
     const twiml = new VoiceResponse();
 
     Promise.all([generateAudio('Ok, call back anytime!')]).then(
@@ -244,7 +317,7 @@ function buildAndSendHangup (req, res, next) {
         });
 }
 
-function buildAndSendTwimlResponse (req, res, next, userId, text) {
+function buildAndSendTwimlResponse(req, res, next, userId, text) {
     const twiml = new VoiceResponse();
 
     Promise.all(
@@ -252,36 +325,36 @@ function buildAndSendTwimlResponse (req, res, next, userId, text) {
             generateAudio(text),
             generateAudio('I didn\'t quite catch that. Please try again.'),
             generateAudio('Ok, call back anytime!')]).then(
-        uri => {
-            let msgUri = uri[0];
-            let firstNotCaughtUri = uri[1];
-            let goodbyeUri = uri[2];
-            // twiml.say(text, { voice: 'Alice' });
-            twiml.play(msgUri);
-            twiml.gather({ input: 'speech', action: '/api/voice/gather', method: 'POST' });
-            // twiml.say('I didn\'t quite catch that. Please try again.', { voice: 'Alice' });
-            twiml.play(firstNotCaughtUri);
-            twiml.gather({ input: 'speech', action: '/api/voice/gather', method: 'POST' });
-            // twiml.say('Ok, call back anytime!');
-            twiml.play(goodbyeUri);
-            twiml.hangup();
+                uri => {
+                    let msgUri = uri[0];
+                    let firstNotCaughtUri = uri[1];
+                    let goodbyeUri = uri[2];
+                    // twiml.say(text, { voice: 'Alice' });
+                    twiml.play(msgUri);
+                    twiml.gather({ input: 'speech', action: '/api/voice/gather', method: 'POST' });
+                    // twiml.say('I didn\'t quite catch that. Please try again.', { voice: 'Alice' });
+                    twiml.play(firstNotCaughtUri);
+                    twiml.gather({ input: 'speech', action: '/api/voice/gather', method: 'POST' });
+                    // twiml.say('Ok, call back anytime!');
+                    twiml.play(goodbyeUri);
+                    twiml.hangup();
 
-            const response = twiml.toString();
-            console.log(response);
+                    const response = twiml.toString();
+                    console.log(response);
 
-            res.writeHead(200, {
-                'Content-Length': Buffer.byteLength(response),
-                'Content-Type': 'text/html'
-            });
-            res.write(response);
-            next();
-        });
+                    res.writeHead(200, {
+                        'Content-Length': Buffer.byteLength(response),
+                        'Content-Type': 'text/html'
+                    });
+                    res.write(response);
+                    next();
+                });
 }
 
 const baseUrl = 'https://directline.botframework.com/v3/directline';
 const conversations = baseUrl + '/conversations';
 
-function startConversation (token) {
+function startConversation(token) {
     return new Promise((resolve, reject) => {
         let client = restify.createJsonClient({
             url: conversations,
@@ -304,7 +377,7 @@ function startConversation (token) {
     });
 }
 
-function postActivity (token, conversationId, activity) {
+function postActivity(token, conversationId, activity) {
     // POST to conversations endpoint
     const url = conversations + '/' + conversationId + '/activities';
     return new Promise((resolve, reject) => {
@@ -329,7 +402,7 @@ function postActivity (token, conversationId, activity) {
     });
 }
 
-function getActivities (token, conversationId, watermark) {
+function getActivities(token, conversationId, watermark) {
     // GET activities from conversations endpoint
     let url = conversations + '/' + conversationId + '/activities';
     if (watermark) {
